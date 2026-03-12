@@ -1,0 +1,140 @@
+/* General Layout */
+:root {
+  --primary: #1a73e8;
+  --present: #4caf50;
+  --absent: #f44336;
+  --holiday: #9e9e9e;
+  --bg: #f8f9fa;
+  --card-bg: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+.app-div {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Left for controls, Right for Calendar */
+  gap: 30px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Grouping inputs and buttons */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border-right: 1px solid #eee;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: -10px;
+  color: #555;
+}
+
+input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Blue Calculate Button */
+button[onClick*="calculateStats"] {
+  background-color: var(--primary);
+  color: white;
+  margin-top: 10px;
+}
+
+/* Stats Display */
+.stats-container {
+  grid-column: 1 / -1; /* Full width at bottom or top */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  background: #eef4ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.stats-container p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+/* --- Calendar Styling --- */
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* Tile Custom States */
+.present {
+  background-color: var(--present) !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.absent {
+  background-color: var(--absent) !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.holiday {
+  background-color: var(--holiday) !important;
+  color: white !important;
+  border-radius: 50%;
+}
+
+.weekend {
+  color: #d32f2f !important;
+  font-weight: bold;
+}
+
+/* Legend for user clarity */
+.legend {
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
